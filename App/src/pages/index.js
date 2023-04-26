@@ -1,30 +1,41 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Formulario from "./components/Formulario";
-import CalculoTermino from "./components/CalculoTermino";
-import Resultado from "./components/Resultado";
+import Formulario from "../components/Formulario";
+import Resultado from "../components/Resultado";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { n: null };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.state = {
+      n: "",
+      resultado: ""
+    };    
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleFormSubmit(n) {
-    this.setState({ n });
+  handleChange(event) {
+    this.setState({ n: event.target.value });
   }
+
+  handleSubmit() {
+    const resultado = new Formulario().obtenerResultado(parseInt(this.state.n));
+    this.setState({ resultado: resultado });
+  }
+  
 
   render() {
     return (
-      <div>
-        <Formulario onSubmit={this.handleFormSubmit} />
-        {this.state.n && <CalculoTermino n={this.state.n} />}
-        {this.state.n && <Resultado resultado={this.state.resultado} />}
+      <div>        
+        <Formulario
+          value={this.state.n}
+          handleChange={this.handleChange}
+          onSubmit={this.handleSubmit} // Pasando la función handleSubmit como prop
+        />
+
+        <Resultado resultado={this.state.resultado} />
       </div>
     );
   }
-
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;

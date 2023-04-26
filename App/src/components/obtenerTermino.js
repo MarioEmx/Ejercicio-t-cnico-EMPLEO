@@ -32,15 +32,15 @@ class Serie {
       dividendo = fibonacci(n) - triangular(n - 1),
       resultado = (dividendo / divisor);        
 
-    /*if (divisor === 0 && divisor === -0) {
-      let error = "No es posible calcular el resultado ya que el divisor no puede ser 0";
-    }*/
+    if (divisor === 0 && divisor === -0) {
+      return { error: "No es posible calcular el resultado ya que el divisor no puede ser 0", resultado: NaN };
+    }
 
     if (!Number.isInteger(resultado)) {
       resultado = resultado.toFixed(2);
     }    
-    return resultado.toString();    
+    return { error: "", resultado: resultado.toString() };    
   }
 }
-module.exports = Serie;
 
+module.exports = Serie;
