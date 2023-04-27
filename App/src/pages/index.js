@@ -25,7 +25,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>        
+      <div className="form_wrapper">        
         <Formulario
           value={this.state.n}
           handleChange={this.handleChange}

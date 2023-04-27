@@ -1,12 +1,12 @@
 import React from "react";
 
 class Resultado extends React.Component {
+  
   render() {
-    return (
+    const message = document.querySelectorAll("p");    
+    return (      
       <div>
-        {this.props.resultado && (
-          <p>Tu resultado es: {this.props.resultado}</p>
-        )}
+        {this.props.resultado}        
       </div>
     );
   }

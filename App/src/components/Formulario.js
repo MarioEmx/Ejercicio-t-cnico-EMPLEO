@@ -20,31 +20,36 @@ class Formulario extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const serie = new Serie();
-    const resultado = serie.obtenerTermino(parseInt(this.state.n));
-    console.log(resultado);
+    const resultado = serie.obtenerTermino(parseInt(this.state.n));    
     
-    if (resultado.error) { // Si hay un error, actualizar el estado del mensaje de error
+    if (resultado.error) { // Si hay un error escribir el estado del mensaje de error
       this.setState({ error: resultado.error, resultado: null });
-    } else { // Si no hay error, actualizar el estado del resultado y dejar el mensaje de error en null
+    } else { // Si no hay error actualizar el estado del resultado y dejar el mensaje de error en null
       this.setState({ resultado: resultado.resultado, error: null });
     }
   }
-  
+
+  limpiar(){    
+    const input = document.querySelector("input");                    ;    
+    input.value="";    
+
+  }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="form">
         <label>
           Ingrese un número:
           <input type="number" value={this.state.n} onChange={this.handleChange} />
         </label>
-        <button type="button" onClick={this.handleSubmit}>Calcular término</button>
+        <button type="button" onClick={this.handleSubmit} className="btn">Calcular término</button>
         {this.state.resultado && (
-          <p>Mi resultado es: {this.state.resultado}</p>
+          <p className="resultado">Mi resultado es: {this.state.resultado}</p>
         )}
         {this.state.error && (
-          <p>{this.state.error}</p>
+          <p className="error">{this.state.error}</p>
         )}
+        <button type="button" className="remove_btn" onClick={this.limpiar}>Limpiar formulario</button>
       </form>
     );
   }
