@@ -37,6 +37,10 @@ a {
   text-decoration: none;
 }
 
+p{
+  display: block;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -119,3 +123,19 @@ input[type=number]::-moz-outer-spin-button {
 }
 
 
+.remove_btn{
+  display: none;  
+  background: rgb(235, 235, 235);
+  color: #222;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 1rem auto;
+  transition: all 0.3s ease-out;
+}
+
+.remove_btn:hover{
+  background: #222;
+  color: #fff;
+}

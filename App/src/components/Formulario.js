@@ -13,6 +13,7 @@ class Formulario extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
+  //Se captura el valor del input
   handleChange(event) {
     this.setState({ n: event.target.value });
   }
@@ -20,7 +21,13 @@ class Formulario extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const serie = new Serie();
-    const resultado = serie.obtenerTermino(parseInt(this.state.n));    
+    const resultado = serie.obtenerTermino(parseInt(this.state.n));        
+    const res = document.querySelectorAll("p");
+    res.forEach(p => {
+      p.style.display = "block";          
+    });
+    const clear = document.querySelector(".remove_btn");
+    clear.style.display="block";
     
     if (resultado.error) { // Si hay un error escribir el estado del mensaje de error
       this.setState({ error: resultado.error, resultado: null });
@@ -29,10 +36,15 @@ class Formulario extends React.Component {
     }
   }
 
-  limpiar(){    
-    const input = document.querySelector("input");                    ;    
+  //Limpiamos el formulario y resultado 
+  clearForm(event){    
+    const input = document.querySelector("input");           
+    const res = document.querySelectorAll("p");
+    res.forEach(p => {
+      p.style.display = "none";          
+    });
+    event.target.style.display="none";
     input.value="";    
-
   }
 
   render() {
@@ -44,12 +56,12 @@ class Formulario extends React.Component {
         </label>
         <button type="button" onClick={this.handleSubmit} className="btn">Calcular término</button>
         {this.state.resultado && (
-          <p className="resultado">Mi resultado es: {this.state.resultado}</p>
+          <p className="resultado">El resultado es: {this.state.resultado}</p>
         )}
         {this.state.error && (
           <p className="error">{this.state.error}</p>
         )}
-        <button type="button" className="remove_btn" onClick={this.limpiar}>Limpiar formulario</button>
+        <button type="button" className="remove_btn" onClick={this.clearForm}>Limpiar formulario</button>
       </form>
     );
   }

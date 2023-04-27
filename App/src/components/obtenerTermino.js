@@ -12,7 +12,6 @@ class Serie {
     function triangular(n) {
       return ((n * (n + 1)) / 2) * 3;
     }
-
     // Calcular si es numero primo
     function primo(n) {
       if (n < 2) {
@@ -33,7 +32,7 @@ class Serie {
       resultado = (dividendo / divisor);        
 
     if (divisor === 0 && divisor === -0) {
-      return { error: "No es posible calcular el resultado ya que el divisor no puede ser 0", resultado: NaN };
+      return { error: "No es posible calcular el resultado ya que el divisor no puede ser 0", resultado: resultado.toString() };
     }
 
     if (!Number.isInteger(resultado)) {

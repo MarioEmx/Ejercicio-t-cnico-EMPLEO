@@ -2,8 +2,7 @@ import React from "react";
 
 class Resultado extends React.Component {
   
-  render() {
-    const message = document.querySelectorAll("p");    
+  render() {        
     return (      
       <div>
         {this.props.resultado}        
