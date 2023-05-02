@@ -20,9 +20,9 @@ class Formulario extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const serie = new Serie();
-    const resultado = serie.obtenerTermino(parseInt(this.state.n));        
-    const res = document.querySelectorAll("p");
+    const serie = new Serie(),
+    resultado = serie.obtenerTermino(parseInt(this.state.n)),        
+    res = document.querySelectorAll("p");
     res.forEach(p => {
       p.style.display = "block";          
     });
@@ -38,13 +38,13 @@ class Formulario extends React.Component {
 
   //Limpiamos el formulario y resultado 
   clearForm(event){    
-    const input = document.querySelector("input");           
-    const res = document.querySelectorAll("p");
+    const input = document.querySelector("input"),    
+    res = document.querySelectorAll("p");
     res.forEach(p => {
       p.style.display = "none";          
     });
     event.target.style.display="none";
-    input.value="";    
+    input.value="";
   }
 
   render() {
@@ -52,7 +52,7 @@ class Formulario extends React.Component {
       <form onSubmit={this.handleSubmit} className="form">
         <label>
           Ingrese un número:
-          <input type="number" value={this.state.n} onChange={this.handleChange} />
+          <input type="number" min="0" value={this.state.n} onChange={this.handleChange} />
         </label>
         <button type="button" onClick={this.handleSubmit} className="btn">Calcular término</button>
         {this.state.resultado && (
