@@ -1,5 +1,5 @@
 class Serie {
-  ObtenerTermino(n) {
+  obtenerTermino(n) {
     // Calcular el "n" número de Fibonacci
     function fibonacci(n) {
       const numFib = [0, 1];

@@ -9,8 +9,8 @@ class App extends React.Component {
       n: "",
       resultado: ""
     };    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this); //Ligando al objeto App
+    this.handleSubmit = this.handleSubmit.bind(this); //Ligando al objeto App
   }
 
   handleChange(event) {

@@ -9,8 +9,8 @@ class Formulario extends React.Component {
       resultado: null, // Agregando el estado del resultado
       error: null // Agregando el estado del mensaje de error
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this); 
   }
   
   //Se captura el valor del input
