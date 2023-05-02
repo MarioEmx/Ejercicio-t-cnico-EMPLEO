@@ -1,4 +1,4 @@
-const Serie = require('../components/obtenerTermino');
+const Serie = require('../components/ObtenerTermino');
 
 describe('Serie', () => {
   const serie = new Serie();

@@ -22,7 +22,7 @@ class App extends React.Component {
     this.setState({ resultado: resultado });
   }
   
-
+  
   render() {
     return (
       <div className="form_wrapper">        

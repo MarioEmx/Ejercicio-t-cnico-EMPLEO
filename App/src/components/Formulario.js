@@ -1,5 +1,5 @@
 import React from "react";
-import Serie from "../components/obtenerTermino"
+import Serie from "./ObtenerTermino";
 
 class Formulario extends React.Component {  
   constructor(props) {
