@@ -75,9 +75,7 @@ class App extends React.Component {
     const disabled = this.state.isNEmpty; // Calcula la prop disabled
     return (
       <div className="form_wrapper">
-        <div>Formulario para calcular el n termino de la serie:
-          <img src="../img/serie.png"></img>
-        </div>
+        <div>Formulario para calcular el n termino de la serie</div>
         
         <Formulario
           value={this.state.n}
