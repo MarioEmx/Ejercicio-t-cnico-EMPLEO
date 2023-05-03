@@ -26,19 +26,25 @@ class Serie {
     }
 
     //Realizar operaciones
-    let preDivisor = (n - 10); 
-    let divisor =  preDivisor * primo(n + 2),
+    let preDivisor = n - 10;
+    let divisor = preDivisor * primo(n + 2),
       dividendo = fibonacci(n) - triangular(n - 1),
-      resultado = (dividendo / divisor);        
+      resultado = dividendo / divisor;
 
-    if (divisor === 0 && divisor === -0) {
-      return { error: "No es posible calcular el resultado ya que el divisor no puede ser 0", resultado: resultado.toString() };
+    // Validando si el divisor es 0
+    if (divisor === 0 || divisor === -0) {
+      return {
+        error:
+          "No es posible calcular el resultado ya que el divisor no puede ser 0",
+        resultado: resultado.toString(),
+      };
     }
 
+    // Regresar 2 decimales si es que los tiene y convertir el resultado a string
     if (!Number.isInteger(resultado)) {
       resultado = resultado.toFixed(2);
-    }    
-    return { error: "", resultado: resultado.toString() };    
+    }
+    return { error: "", resultado: resultado.toString() };
   }
 }
 
