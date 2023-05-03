@@ -14,8 +14,7 @@ class App extends React.Component {
       isNEmpty: true // Estado para indicar si el campo n está vacío
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearN = this.clearN.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);    
     this.clearForm = this.clearForm.bind(this);
   }
 
@@ -49,16 +48,6 @@ class App extends React.Component {
         mostrarBtnLimpiar: true
       });
     }
-  }
-
-  clearN() {
-    this.setState({
-      n: "",
-      resultado: null,
-      error: null,
-      mostrarBtnLimpiar: false, // Oculta el btn limpiar
-      isNEmpty: true // Reinicia isNEmpty
-    });
   }
 
   clearForm() {
